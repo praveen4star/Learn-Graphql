@@ -61,5 +61,5 @@ const root = {
     ]
 }
 app.use("/graphql", graphqlHTTP({ schema : schema, rootValue : root, graphiql : true}));
-
-app.listen(3000, () => console.log('Server started on port 3000'));
+const prot = process.env.PORT || 3000;
+app.listen(port, () => console.log('Server started on port 3000'));

@@ -23,12 +23,21 @@ function getPrductByID(id) {
     return products.find(product => product.id === id);
 }
 function addProduct(id, description, price) { 
-    products.push({ id, description, price });
+    products.push({ id, description, price ,reviews : []});
     return products.find(product => product.id === id);
 }
+function addNewReview(id, rating, comment) { 
+    const review = { rating, comment };
+    const product = products.find(product => product.id === id);
+    product.reviews.push(review);
+    console.log(product.reviews);
+    return product.reviews;
+}
+
 module.exports = {
     getAllProducts,
     getProductByPrice,
     getPrductByID,
-    addProduct
+    addProduct,
+    addNewReview
 }
